@@ -1,0 +1,62 @@
+{
+  "estabelecimento": {
+    "nome_fantasia": "PAGUE MENOS",
+    "razao_social": "EMPREENDIMENTOS PAGUE MENOS S/A",
+    "cnpj": "06.626.253/0132-19",
+    "endereco": {
+      "logradouro": "AV GOVERNADOR FLAVIO RIBEIRO COUTINHO",
+      "numero": "21",
+      "bairro": "MANAIRA",
+      "cidade": "JOAO PESSOA",
+      "estado": "PB"
+    }
+  },
+  "transacao": {
+    "data_emissao": "2025-06-14T17:57:36-03:00",
+    "data_autorizacao": "2025-06-14T17:57:39-03:00",
+    "numero_nfce": "000125447",
+    "serie_nfce": "102",
+    "chave_acesso": "25250606626253013219651020001254471519877010",
+    "url_consulta_sefaz": "http://www.sefaz.pb.gov.br/nfce/consulta"
+  },
+  "consumidor": {
+    "nome": "NATANIEL JOSE AMORIM FIUZA",
+    "cpf_na_nota": true
+  },
+  "itens": [
+    {
+      "numero_item": 1,
+      "codigo_produto": "7896004704036",
+      "descricao": "NIMESULIDA 100MG CPD/12 GN-EM S",
+      "categoria": "Farmácia / Medicamentos",
+      "quantidade": 1.0,
+      "unidade_medida": "UN",
+      "valor_unitario_bruto": 23.31,
+      "valor_desconto": 11.31,
+      "valor_total_liquido": 12.00
+    }
+  ],
+  "totalizacao": {
+    "valor_total_itens": 23.31,
+    "valor_total_descontos": 11.31,
+    "valor_a_pagar": 12.00
+  },
+  "pagamento": {
+    "forma_pagamento": "Cartão de Crédito",
+    "detalhe": "CRÉDITO A VISTA",
+    "valor_pago": 12.00
+  },
+  "impostos": {
+    "descricao": "Valor aproximado dos tributos",
+    "fonte": "IBPT",
+    "valor_total_tributos": 4.31,
+    "detalhes": {
+      "federal_aproximado": 2.15,
+      "estadual_aproximado": 2.16
+    }
+  },
+  "informacoes_adicionais": {
+    "economia_total": 11.31,
+    "vendedor_id": "6470"
+  }
+}

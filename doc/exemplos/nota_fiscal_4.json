@@ -1,0 +1,34 @@
+{
+  "tipo_documento": "Comprovante de Pagamento de Cartão",
+  "adquirente": {
+    "nome": "Stone",
+    "stone_id": "33353869749041"
+  },
+  "estabelecimento": {
+    "nome": "CANTINA DA EDINHA",
+    "identificador_fiscal": {
+      "tipo": "CPF",
+      "valor": "038.416.664-42"
+    },
+    "endereco": {
+      "logradouro": "RUA MONSENHOR WALFREDO LEAL",
+      "numero": "631",
+      "cidade": "JOÃO PESSOA",
+      "estado": "PB",
+      "cep": "58020-540"
+    }
+  },
+  "transacao": {
+    "data_transacao": "2025-08-21T07:38:00-03:00",
+    "valor": 30.50,
+    "moeda": "BRL",
+    "codigo_autorizacao": "041457"
+  },
+  "pagamento": {
+    "tipo": "CRÉDITO",
+    "modalidade": "Crédito à vista",
+    "bandeira_cartao": "Mastercard",
+    "ultimos_digitos_cartao": "1432",
+    "metodo_entrada": "Contactless (Aprovado sem senha)"
+  }
+}

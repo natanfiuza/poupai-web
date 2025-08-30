@@ -1,0 +1,64 @@
+{
+  "documento": {
+    "tipo": "Nota Fiscal de Serviços Eletrônica (NFS-e)",
+    "municipio_emissor": "João Pessoa - PB",
+    "numero": "1957685",
+    "data_emissao": "2025-08-29T14:27:37-03:00",
+    "codigo_verificacao": "ZoZmP46sF"
+  },
+  "prestador_servico": {
+    "nome_empresarial": "CENTRO DE DIAGNOSTICO INTEGRADO DE OFTALMOLOGIA LTDA",
+    "cnpj": "21.056.974/0001-85",
+    "inscricao_municipal": "2068202",
+    "email": "oftalmodiagnosejp@gmail.com",
+    "telefone": "(83) 3222-1001",
+    "endereco": {
+      "logradouro": "AVENIDA GENERAL BENTO DA GAMA",
+      "numero": "665",
+      "bairro": "TORRE",
+      "cidade": "JOÃO PESSOA",
+      "estado": "PB",
+      "cep": "58040-090"
+    }
+  },
+  "tomador_servico": {
+    "nome": "NATANIEL JOSE AMORIM FIUZA",
+    "cpf": "029.825.964-82",
+    "endereco": {
+      "logradouro": "RUA SERGIO GOMES VIEIRA, 21",
+      "bairro": "IPES",
+      "cidade": "JOÃO PESSOA",
+      "estado": "PB",
+      "cep": "58028-360"
+    }
+  },
+  "servico": {
+    "descricao": "REFERENTE A SERVICOS MEDICOS OFTALMOLOGICOS PRESTADOS - PAGAMENTO EM PIX",
+    "cnae": "8630-5/02",
+    "local_prestacao": "JOÃO PESSOA / PB"
+  },
+  "valores": {
+    "valor_total_servicos": 722.50,
+    "valor_deducoes": 0.00,
+    "desconto_incondicionado": 0.00,
+    "retencoes": 0.00,
+    "valor_liquido_nfse": 722.50
+  },
+  "tributacao": {
+    "regime_especial": "Simples Nacional",
+    "issqn": {
+      "exigibilidade": "Exigível",
+      "retido_pelo_tomador": false,
+      "base_calculo": 722.50,
+      "aliquota_percentual": 5.00,
+      "valor": 36.12
+    },
+    "retencoes_federais": {
+      "irrf": 0.00,
+      "pis": 0.00,
+      "cofins": 0.00,
+      "inss": 0.00,
+      "csll": 0.00
+    }
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "estabelecimento": {
+    "nome_fantasia": "CAVALCANTI COMERCIO DE COMBUSTIVEIS",
+    "razao_social": "CAVALCANTI COMERCIO DE COMBUSTIVEIS LTDA",
+    "cnpj": "06.974.840/0001-91",
+    "endereco": {
+      "logradouro": "RUA JOAQUIM PIRES",
+      "numero": "600",
+      "bairro": "IPES",
+      "cidade": "JOAO PESSOA",
+      "estado": "PB"
+    }
+  },
+  "transacao": {
+    "data_emissao": "2025-08-18T06:51:37-03:00",
+    "data_autorizacao": "2025-08-18T06:51:38-03:00",
+    "numero_nfce": "001455674",
+    "serie_nfce": "037",
+    "chave_acesso": "25250806974840000191650370014556741900880691",
+    "url_consulta_sefaz": "http://www.sefaz.pb.gov.br/nfce/consulta"
+  },
+  "itens": [
+    {
+      "numero_item": 1,
+      "descricao": "GASOLINA COMUM",
+      "categoria": "Combustível",
+      "quantidade": 3.334,
+      "unidade_medida": "L",
+      "valor_unitario": 5.999,
+      "valor_total": 20.00
+    }
+  ],
+  "totalizacao": {
+    "quantidade_itens": 1,
+    "valor_total_compra": 20.00
+  },
+  "pagamento": {
+    "valor_pago": 20.00
+  },
+  "impostos": {
+    "descricao": "Valor aproximado dos tributos (Federal, Estadual, Municipal)",
+    "fonte": "IBPT/empresometro.com.br",
+    "valor_total_tributos": 8.39,
+    "detalhes": {
+      "federal": 2.71,
+      "estadual": 5.68,
+      "municipal": 0.00
+    }
+  },
+  "informacoes_adicionais": {
+    "frentista": "AURIVAN PEREIRA DE ALMEIDA",
+    "consumidor_identificado": false
+  }
+}

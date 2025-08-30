@@ -1,0 +1,68 @@
+{
+  "estabelecimento": {
+    "nome_fantasia": "REDE MENOR PREÇO SUPERMERCADOS",
+    "razao_social": "REDE MENOR PREÇO SUPERMERCADOS LTDA",
+    "cnpj": "08.414.925/0001-93",
+    "inscricao_estadual": "163.351.430-370",
+    "endereco": {
+      "logradouro": "RUA JOAQUIM PIRES FERREIRA",
+      "numero": "332",
+      "bairro": "ESTADOS",
+      "cidade": "JOÃO PESSOA",
+      "estado": "PB"
+    }
+  },
+  "transacao": {
+    "data_emissao": "2025-08-10T08:15:26-03:00",
+    "data_autorizacao": "2025-08-10T08:16:24-03:00",
+    "numero_nfce": "000160148",
+    "serie_nfce": "269",
+    "protocolo_autorizacao": "25250300629112",
+    "chave_acesso": "25250808414925000193652690001601481714272105",
+    "url_consulta_sefaz": "http://www.sefaz.pb.gov.br/nfce/consulta"
+  },
+  "itens": [
+    {
+      "numero_item": 1,
+      "codigo_produto": "1939",
+      "descricao": "PEITO PERU SADIA KG",
+      "categoria": "Frios e Embutidos",
+      "quantidade": 0.242,
+      "unidade_medida": "KG",
+      "valor_unitario": 49.90,
+      "valor_total": 12.08
+    },
+    {
+      "numero_item": 2,
+      "codigo_produto": "256.72",
+      "descricao": "QUEIJO MUSSARELA LA PR",
+      "categoria": "Laticínios e Frios",
+      "quantidade": 0.168,
+      "unidade_medida": "KG",
+      "valor_unitario": 39.90,
+      "valor_total": 6.71
+    },
+    {
+      "numero_item": 3,
+      "codigo_produto": "789896384.01818",
+      "descricao": "OVOS BRANCO AVINE C 2UN",
+      "categoria": "Mercearia / Ovos",
+      "quantidade": 2.0,
+      "unidade_medida": "UN",
+      "valor_unitario": 14.99,
+      "valor_total": 29.98
+    }
+  ],
+  "totalizacao": {
+    "quantidade_itens": 3,
+    "valor_total_compra": 48.77
+  },
+  "pagamento": {
+    "forma_pagamento": "Cartão de Crédito",
+    "valor_pago": 48.77
+  },
+  "impostos": {
+    "descricao": "Tributos Totais Incidentes (Lei Federal 12.741/2012)",
+    "valor_total_tributos": 15.34
+  }
+}
