@@ -3,12 +3,15 @@ namespace Database\Seeders;
 
 use App\Models\PaymentMethodDefault;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Schema;
 
 class PaymentMethodDefaultSeeder extends Seeder
 {
     public function run(): void
     {
+        Schema::disableForeignKeyConstraints();
         PaymentMethodDefault::truncate();
+        Schema::enableForeignKeyConstraints();
 
         $methods = [
             // Cartões
