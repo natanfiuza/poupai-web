@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('/app')->group(function () {
 
     Route::post('login', [App\Http\Controllers\AppEndpointsController::class, 'login'])->name('app.login');
+    Route::post('register', [App\Http\Controllers\AppEndpointsController::class, 'register'])->name('app.login');
     Route::post('logout', [App\Http\Controllers\AppEndpointsController::class, 'logout'])->name('app.logout');
     Route::post('forgot-password', [App\Http\Controllers\AppEndpointsController::class, 'forgot_password'])->name('app.forgot-password');
     Route::middleware(['validate.auth.header.app'])->get('user/me', [App\Http\Controllers\AppEndpointsController::class, 'user_me'])->name('app.user.me');

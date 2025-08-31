@@ -1,22 +1,14 @@
 <?php
 namespace App\Http\Controllers;
 
-use Carbon\Carbon;
 use App\Models\User;
-use App\Models\Projeto;
-use App\Models\Reuniao;
-use App\Classes\TObject;
-use App\Models\Colaborador;
-use App\Models\ConfigGeral;
-use Illuminate\Support\Str;
-use App\Models\ReuniaoLocal;
 use App\Models\UserActivity;
-use Illuminate\Http\Request;
 use App\Models\UserSessionApp;
-use Illuminate\Support\Facades\DB;
-use App\Models\ReuniaoParticipante;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
 
 class AppEndpointsController extends Controller
 {
@@ -199,6 +191,81 @@ class AppEndpointsController extends Controller
         return response()->json(['status' => 'error', 'message' => __('User not authenticated')], 401);
     }
 
-   
+    /**
+     * Registra um novo usuario
+     *
+     * @param Request $request
+     *
+     * @return [type]
+     *
+     */
+    public function register(Request $request)
+    {
+        DB::beginTransaction();
+
+        try {
+            User::create([
+                'name'     => $request->name,
+                'email'    => $request->email,
+                'password' => bcrypt($request->password),
+            ]);
+
+            if (Auth::attempt($request->only('email', 'password'))) {
+
+                $user_session_app = UserSessionApp::create([
+                    'user_id' => Auth::user()->id,
+                    'uuid'    => Str::uuid(),
+                    'start'   => time(),
+                    'expire'  => time() + 31536000,       // Expira em um ano
+                    'os_name' => $request->os_name ?? '', // Nome do sistema operacional do dispositivo
+                ]);
+
+                UserActivity::create([
+                    'user_id'     => Auth::user()->id,
+                    'route'       => $request->path(),
+                    'ip'          => $request->ip(),
+                    'is_ajax'     => $request->ajax(),
+                    'method'      => $request->method(),
+                    'accessed_at' => now(),
+                ]);
+                $cliente_id = Auth::user()->cliente_id;
+                $user_id    = Auth::user()->id;
+
+                $user = User::selectRaw("
+                    users.id,
+                    users.uuid,
+                    users.email_verified_at,
+                    users.email,
+                    CONCAT('" . env('APP_URL') . "','/user/profile/image/', users.uuid)
+                        AS photoUrl,
+                    users.name,
+                    users.created_at,
+                    users.updated_at")
+                    ->where('id', $user_id)
+                    ->first();
+                DB::commit();
+                return response()->json([
+                    'status'  => 'success',
+                    'message' => 'App login successfully',
+                    'data'    => [
+                        'token' => base64_encode(Auth::user()->uuid . ':' . $user_session_app->uuid),
+                        'user'  => $user,
+
+                    ],
+                ], 200);
+            }
+            DB::rollback();
+        } catch (\Exception $e) {
+            DB::rollback();
+
+            return response()->json([
+                'status'  => 'error',
+                'message' => 'App register fail',
+                'data'    => [],
+            ], 400);
+
+        }
+
+    }
 
 }
