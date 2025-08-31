@@ -1,15 +1,16 @@
 <?php
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AppEndpointsController;
 
 // TO-DO: Create middleware to validate the Authorization header
 // Route::middleware(['validate.auth.header'])->prefix('/app')->group(function () {
 Route::prefix('/app')->group(function () {
 
-    Route::post('login', [App\Http\Controllers\AppEndpointsController::class, 'login'])->name('app.login');
-    Route::post('register', [App\Http\Controllers\AppEndpointsController::class, 'register'])->name('app.login');
-    Route::post('logout', [App\Http\Controllers\AppEndpointsController::class, 'logout'])->name('app.logout');
-    Route::post('forgot-password', [App\Http\Controllers\AppEndpointsController::class, 'forgot_password'])->name('app.forgot-password');
-    Route::middleware(['validate.auth.header.app'])->get('user/me', [App\Http\Controllers\AppEndpointsController::class, 'user_me'])->name('app.user.me');
+    Route::post('login', [AppEndpointsController::class, 'login'])->name('app.login');
+    Route::post('register', [AppEndpointsController::class, 'register'])->name('app.login');
+    Route::post('logout', [AppEndpointsController::class, 'logout'])->name('app.logout');
+    Route::post('forgot-password', [AppEndpointsController::class, 'forgot_password'])->name('app.forgot-password');
+    Route::middleware(['validate.auth.header.app'])->get('user/me', [AppEndpointsController::class, 'user_me'])->name('app.user.me');
 
 
     // Reuniao
