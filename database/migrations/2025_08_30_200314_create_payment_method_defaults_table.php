@@ -11,14 +11,24 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('category_users', function (Blueprint $table) {
+        Schema::create('payment_method_defaults', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('name');
-            $table->enum('type', ['income', 'expense']);
+            $table->enum('type', [
+                'card',
+                'credit_card',
+                'debit_card',
+                'pix',
+                'cash',
+                'bank_transfer',
+                'bank_account',
+                'digital_wallet',
+                'bill',
+                'crypto',
+                'other']);
             $table->string('icon')->nullable();
-            $table->string('color')->nullable();
             $table->timestamps();
+
         });
     }
 
@@ -27,6 +37,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        // Schema::dropIfExists('category_users');
+        Schema::dropIfExists('payment_method_defaults');
     }
 };
