@@ -14,6 +14,12 @@ Route::get('/', function () {
     ]);
 });
 
+
+// Carrega todos os arquivo existentes em routes/web
+foreach (glob(__DIR__ . '/web/*.php') as $filename) {
+    require_once $filename;
+}
+
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
