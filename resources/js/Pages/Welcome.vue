@@ -88,8 +88,8 @@ const isMobileMenuOpen = ref(false);
                 Começar Agora
                 </Link>
             </div>
-            <div class="flex items-center space-x-3">
-                <img src="/assets/img/googleplay.png" alt="Baixe agora o Poupaí" class="mt-4 w-80 h-20" />
+            <div class="flex items-center space-x-3 mt-4">
+                <img src="/assets/img/googleplay.png" alt="Baixe agora o Poupaí" class="mt-4 w-50 h-16" />
             </div>
         </main>
 

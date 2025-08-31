@@ -48,20 +48,7 @@ const recentTransactions = [
                         <div class="bg-poupai-green h-2.5 rounded-full" style="width: 75%"></div>
                     </div>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-sm border border-green-200">
-                    <div class="flex items-center justify-between">
-                        <h3 class="text-lg font-semibold text-poupai-dark flex items-center">
-                            <span class="text-yellow-500 mr-2">⭐</span>
-                            Defina sua meta de economia
-                        </h3>
-                        <span class="text-sm font-bold text-poupai-green">75%</span>
-                    </div>
-                    <p class="text-sm text-gray-500 mt-1">Você está quase lá! Continue economizando para atingir seu
-                        objetivo.</p>
-                    <div class="w-full bg-gray-200 rounded-full h-2.5 mt-3">
-                        <div class="bg-poupai-green h-2.5 rounded-full" style="width: 75%"></div>
-                    </div>
-                </div>
+
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div class="bg-white p-6 rounded-lg shadow-sm flex items-start justify-between">
