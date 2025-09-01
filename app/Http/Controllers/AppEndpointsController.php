@@ -53,6 +53,8 @@ class AppEndpointsController extends Controller
                     users.updated_at")
                 ->where('users.id', $user_id)
                 ->first();
+            $user->first_name = explode(' ', $user->name)[0];
+
 
 
             return response()->json([
@@ -195,6 +197,8 @@ class AppEndpointsController extends Controller
                     users.updated_at")
                     ->where('id', $user_id)
                     ->first();
+                $user->first_name = explode(' ', $user->name)[0];
+
                 DB::commit();
                 return response()->json([
                     'status'  => 'success',
