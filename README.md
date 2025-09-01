@@ -129,6 +129,6 @@ Este projeto é de código fechado. Todos os direitos reservados.
 
 ## 👤 Contato
 
-**[Seu Nome]**
+**Nataniel Fiuza**
 * **E-mail**: `[contato@natanfiuza.dev.br]`
 * **LinkedIn**: `https://linkedin.com/in/natanfiuza`
