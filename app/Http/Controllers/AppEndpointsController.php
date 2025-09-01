@@ -43,55 +43,17 @@ class AppEndpointsController extends Controller
 
             $user = User::selectRaw("
                     users.id,
-                    colaboradors.id AS colaborador_id,
-                    colaboradors.cliente_id,
-                    colaboradors.pais_id,
                     users.uuid,
                     users.email_verified_at,
                     users.email,
                     CONCAT('" . env('APP_URL') . "','/user/profile/image/', users.uuid)
                         AS photoUrl,
-                    colaboradors.uuid
-                        AS colaborador_uuid,
-                    colaborador_dados_extras.matricula,
                     users.name,
-                    colaboradors.nome_social,
-                    colaboradors.cpf,
-                    colaboradors.sexo,
-                    colaboradors.cep,
-                    colaboradors.endereco,
-                    colaboradors.numero,
-                    colaboradors.complemento,
-                    colaboradors.bairro,
-                    colaboradors.cidade,
-                    colaboradors.estado,
-                    colaboradors.nascimento_data,
-                    colaboradors.is_user,
-                    colaboradors.user_id,
-                    colaborador_nivel_academicos.nome
-                        AS nivel_academico_nome,
-                    setors.id
-                        AS setor_id,
-                    setors.nome
-                        AS setor_nome,
-                    funcaos.id
-                        AS funcao_id,
-                    funcaos.nome
-                        AS funcao_nome,
-                    colaborador_ano_bases.admissao_data,
-                    colaboradors.created_at,
-                    colaboradors.updated_at")
-                ->leftjoin('colaboradors', 'colaboradors.cpf', 'users.cpf')
-                ->leftjoin('colaborador_ano_bases', 'colaborador_ano_bases.colaborador_id', 'colaboradors.id')
-                ->leftjoin('colaborador_dados_extras', 'colaborador_dados_extras.colaborador_id', 'colaboradors.id')
-                ->leftJoin('colaborador_nivel_academicos', 'colaborador_nivel_academicos.id', '=', 'colaborador_ano_bases.nivel_academico_id')
-                ->leftJoin('funcaos', 'funcaos.id', '=', 'colaborador_dados_extras.funcao_id')
-                ->leftJoin('setors', 'setors.id', '=', 'colaborador_dados_extras.setor_id')
+                    users.created_at,
+                    users.updated_at")
                 ->where('users.id', $user_id)
-                ->groupBy('colaboradors.id')
-                ->orderBy('colaboradors.name')
                 ->first();
-            File::put(storage_path('app/user_do_login_app.json'), $user->toJson());
+
 
             return response()->json([
                 'status'  => 'success',
@@ -99,16 +61,6 @@ class AppEndpointsController extends Controller
                 'data'    => [
                     'token' => base64_encode(Auth::user()->uuid . ':' . $user_session_app->uuid),
                     'user'  => $user,
-                    // 'user'  => [
-                    //     'id'              => Auth::user()->id,
-                    //     'uuid'            => Auth::user()->uuid,
-                    //     'name'            => Auth::user()->name,
-                    //     'email'           => Auth::user()->email,
-                    //     'emailVerifiedAt' => Auth::user()->email_verified_at,
-                    //     'photoUrl'        => env('APP_URL') . '/user/profile/image/' . Auth::user()->uuid,
-                    //     'createdAt'       => Auth::user()->created_at,
-                    //     'updatedAt'       => Auth::user()->updated_at,
-                    // ]
                 ],
             ], 200);
         }
