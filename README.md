@@ -1,61 +1,134 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Poupaí - Gestor de Finanças Pessoais
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+![Logo Poupaí](public/assets/img/logo_vertical_branco.png)
 
-## About Laravel
+Poupaí é uma aplicação web de gestão de finanças pessoais, projetada para ajudar os usuários a controlar suas receitas e despesas de forma simples e intuitiva.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 📜 Sobre o Projeto
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Este projeto consiste na API (back-end) e no App Web (front-end) do Poupaí. O objetivo é fornecer uma plataforma robusta e amigável para o gerenciamento financeiro, com funcionalidades como dashboard, registro de transações, categorização e visualização de dados.
 
-## Learning Laravel
+O back-end é construído com Laravel e serve uma API que se comunica com o front-end, construído com Vue.js e Inertia.js.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+E também um API para disponibilizar os dados para o aplicativo mobile do projeto.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+---
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 🛠️ Stack de Tecnologias
 
-## Laravel Sponsors
+Este projeto foi construído com as seguintes tecnologias:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+* **Back-end**: PHP (Laravel Framework)
+* **Front-end**: Vue.js (com Inertia.js)
+* **Banco de Dados**: MySQL
+* **Estilização**: Tailwind CSS
+* **Autenticação de API**: Laravel Sanctum
+* **Autenticação Web**: Laravel Breeze
 
-### Premium Partners
+---
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+## ⚙️ Pré-requisitos
 
-## Contributing
+Antes de começar, certifique-se de que você tem os seguintes softwares instalados na sua máquina:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+* PHP `^8.2`
+* Composer `^2.5`
+* Node.js `^20.x`
+* NPM `^10.x`
+* Um servidor de banco de dados MySQL
 
-## Code of Conduct
+---
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## 🚀 Instruções de Instalação
 
-## Security Vulnerabilities
+Siga o passo a passo abaixo para configurar o ambiente de desenvolvimento local.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+1.  **Clone o repositório:**
+    ```bash
+    git clone git@github.com:natanfiuza/poupai-web.git
+    cd poupai-api
+    ```
 
-## License
+2.  **Instale as dependências do PHP:**
+    ```bash
+    composer install
+    ```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+3.  **Instale as dependências do Node.js:**
+    ```bash
+    npm install
+    ```
+
+4.  **Configure o arquivo de ambiente:**
+    Copie o arquivo de exemplo `.env.example` para um novo arquivo chamado `.env`.
+    ```bash
+    cp .env.example .env
+    ```
+
+5.  **Gere a chave da aplicação:**
+    ```bash
+    php artisan key:generate
+    ```
+
+6.  **Configure o banco de dados:**
+    Abra o arquivo `.env` e atualize as variáveis de banco de dados (`DB_DATABASE`, `DB_USERNAME`, `DB_PASSWORD`) com as suas credenciais locais.
+    ```env
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=poupai_db
+    DB_USERNAME=root
+    DB_PASSWORD=
+    ```
+    *Não se esqueça de criar o banco de dados `poupai_db` no seu MySQL.*
+
+7.  **Execute as migrations e os seeders:**
+    Este comando irá criar todas as tabelas e popular o banco de dados com os dados iniciais (categorias, tipos de pagamento, etc.).
+    ```bash
+    php artisan migrate:fresh --seed
+    ```
+
+---
+
+## ▶️ Como Rodar o Projeto
+
+Para iniciar a aplicação, você precisará rodar dois comandos em **terminais separados**:
+
+1.  **Inicie o servidor de front-end (Vite):**
+    ```bash
+    npm run dev
+    ```
+
+2.  **Inicie o servidor de back-end (Laravel):**
+    ```bash
+    php artisan serve
+    ```
+
+Após executar os dois comandos, a aplicação estará disponível em `http://127.0.0.1:8000`.
+
+---
+
+## ✨ Funcionalidades Principais
+
+* Autenticação de usuários (Registro e Login).
+* Dashboard com resumo financeiro (Saldo, Receitas, Despesas).
+* Criação e gerenciamento de categorias personalizadas.
+* Registro de transações (receitas e despesas).
+* Páginas de Termos de Uso e Política de Privacidade.
+* Design totalmente responsivo.
+
+---
+
+## 📄 Licença
+
+Este projeto é de código fechado. Todos os direitos reservados.
+
+---
+
+## 👤 Contato
+
+**[Seu Nome]**
+* **E-mail**: `[contato@natanfiuza.dev.br]`
+* **LinkedIn**: `https://linkedin.com/in/natanfiuza`
