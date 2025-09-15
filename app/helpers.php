@@ -20,7 +20,7 @@ if (! function_exists('create_storage_directories')) {
 
     /**
      * Cria os diretórios necessários para armazenar documentos e arquivos temporários.
-     *
+    *
      * @param string $path_documents Nome do diretório para documentos (valor de env('PATH_DOCUMENTS')).
      * @param string $path_sub_directories Nome do subdiretório para arquivos temporários (valor de env('PATH_DOCUMENTS_PDF_TEMP','pdf_temp') Usar com o valor default).
      */
@@ -50,5 +50,39 @@ if (! function_exists('create_storage_directories')) {
         }
         return $full_path_subdir;
     }
+
+}
+
+if (! function_exists('remove_first_name')) {
+
+    /**
+     * Removes the first name from a full name string.
+     *
+     * @param string $name The full name to process.
+     * @return string The name with the first name removed, or an error message if the input is invalid or contains only one word.
+     */
+    function remove_first_name($name)
+    {
+        // Trim whitespace and validate input
+        $name = trim($name);
+
+        // Check if name is empty
+        if (empty($name)) {
+            return "Error: Empty name provided";
+        }
+
+        // Split name into array of words
+        $nameParts = explode(" ", $name);
+
+        // Check if name contains only one word
+        if (count($nameParts) === 1) {
+            return "Error: Name contains only one word";
+        }
+
+        // Remove first name and join remaining parts
+        array_shift($nameParts);
+        return implode(" ", $nameParts);
+    }
+
 
 }

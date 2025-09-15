@@ -53,9 +53,7 @@ class AppEndpointsController extends Controller
                     users.updated_at")
                 ->where('users.id', $user_id)
                 ->first();
-            $user->first_name = explode(' ', $user->name)[0];
-
-
+            $user->first_name = remove_first_name($user->name);
 
             return response()->json([
                 'status'  => 'success',
