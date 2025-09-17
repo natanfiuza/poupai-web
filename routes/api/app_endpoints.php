@@ -11,6 +11,7 @@ Route::prefix('/app')->group(function () {
     Route::post('logout', [AppEndpointsController::class, 'logout'])->name('app.logout');
     Route::post('forgot-password', [AppEndpointsController::class, 'forgot_password'])->name('app.forgot-password');
     Route::middleware(['validate.auth.header.app'])->get('user/me', [AppEndpointsController::class, 'user_me'])->name('app.user.me');
+    Route::middleware(['validate.auth.header.app'])->get('user/categories', [AppEndpointsController::class, 'user_categories'])->name('app.user.categories');
 
 
     // Reuniao

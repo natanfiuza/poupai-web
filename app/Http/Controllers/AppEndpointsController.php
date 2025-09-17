@@ -1,13 +1,14 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Models\CategoryDefault;
+use App\Models\CategoryUser;
 use App\Models\User;
 use App\Models\UserActivity;
 use App\Models\UserSessionApp;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 
 class AppEndpointsController extends Controller
@@ -53,8 +54,18 @@ class AppEndpointsController extends Controller
                     users.updated_at")
                 ->where('users.id', $user_id)
                 ->first();
-            $user->first_name = remove_first_name($user->name);
-
+            $user->first_name   = remove_first_name($user->name);
+            $categorias_padroes = CategoryDefault::all();
+            foreach ($categorias_padroes as $value) {
+                $category_user                      = new CategoryUser();
+                $category_user->user_id             = $user->id;
+                $category_user->category_default_id = $value->id;
+                $category_user->name                = $value->name;
+                $category_user->type                = $value->type;
+                $category_user->icon                = $value->icon;
+                $category_user->color               = $value->color;
+                $category_user->save();
+            }
             return response()->json([
                 'status'  => 'success',
                 'message' => 'App login successfully',
@@ -221,5 +232,32 @@ class AppEndpointsController extends Controller
         }
 
     }
+    /**
+     * Retorna a lista de categorias do usuario
+     *
+     * @param Request $request
+     *
+     * @return [type]
+     *
+     */
+    public function user_categories(Request $request)
+    {
+        $uuid_session = UserSessionApp::parser_authorization($request->header('Authorization'));
+        if (empty($uuid_session)) {
+            return response()->json(['status' => 'error', 'message' => __('User not authenticated')], 401);
+        }
 
+        $user = UserSessionApp::check($uuid_session);
+
+        if (! $user) {
+            return response()->json(['status' => 'error', 'message' => __('User not authenticated')], 401);
+        }
+
+        $categorias = CategoryUser::where('user_id',$user->id)->get();
+
+        return response()->json([
+            'status' => 'success',
+            'data'   => $categorias,
+        ], 200);
+    }
 }
