@@ -70,7 +70,7 @@ class UserController extends Controller
      *
      * @param Request $request
      *
-     * @return [type]
+     * @return JSON
      *
      */
     public function upload_image_profile(Request $request)
